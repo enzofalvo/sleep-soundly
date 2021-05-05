@@ -26,15 +26,23 @@ void viewIntroduction() {
    
    controlp5 = new ControlP5(this);
    
-   controlp5.setColorBackground(#8462F5);
+   
+   
   
 
-   Button test1 = controlp5.addButton("TEST").setSize(100, 100).setPosition(75, 50);
-   Button test2 = controlp5.addButton("TEST2").setSize(100, 100).setPosition(325, 50);   
-   Button test3 = controlp5.addButton("TEST3").setSize(100, 100).setPosition(75, 250);
-   Button test4 = controlp5.addButton("TEST4").setSize(100, 100).setPosition(325, 250);
-   Button test5 = controlp5.addButton("TEST5").setSize(100, 100).setPosition(75, 450);
-   Button test6 = controlp5.addButton("TEST6").setSize(100, 100).setPosition(325, 450); 
+   Button test1 = controlp5.addButton("TEST").setSize(150, 100).setPosition(50, 75);
+   test1.setColorBackground(#9D43DE);
+   Button test2 = controlp5.addButton("TEST2").setSize(150, 100).setPosition(300, 75);   
+   test2.setColorBackground(#9D43DE);
+   Button test3 = controlp5.addButton("TEST3").setSize(150, 100).setPosition(50, 275);
+   test3.setColorBackground(#9D43DE);
+   Button test4 = controlp5.addButton("TEST4").setSize(150, 100).setPosition(300, 275);
+   test4.setColorBackground(#9D43DE);
+   Button test5 = controlp5.addButton("TEST5").setSize(150, 100).setPosition(50, 475);
+   test5.setColorBackground(#9D43DE);
+   Button test6 = controlp5.addButton("TEST6").setSize(150, 100).setPosition(300, 475);
+   test6.setColorBackground(#9D43DE);
+   
    
    listOfButtons.add(test1);
    listOfButtons.add(test2);
