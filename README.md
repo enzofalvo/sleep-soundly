@@ -1,7 +1,8 @@
-#  Aplicação ###.
+#  Programa para dormir e ficar relaxado com sons da natureza
 
 ## 📖 Sobre
-Esta aplicação foi desenvolvida em Java, utilizando Processing. Algumas das funções que o programa executa:
+Esta aplicação foi desenvolvida em Java, utilizando Processing. Busca trazer uma sensação de relaxamento e satisfazer o usuário com sons da natureza.
+Algumas das funções que o programa executa:
 <!--ts-->
    * 
    * 
