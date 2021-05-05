@@ -17,5 +17,9 @@ As Seguintes Tecnologias Estão Sendo Utilizadas Para a Construção do Projeto:
 - [Minim](http://code.compartmental.net/tools/minim/)
 
 
-### Autor
----
+### Autores
+--- 
+- [Gabriel Klein](https://github.com/gamarchklein)
+- [Gabrielle Louise](https://github.com/gabrielle-louise)
+- [Enzo Falvo](https://github.com/enzofalvo)
+
