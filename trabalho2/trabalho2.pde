@@ -6,6 +6,7 @@ List<Button> listOfButtons = new ArrayList<Button>();
 
 String name;
 ControlP5 controlp5;
+public boolean dark;
 
 void setup() {
   size(500, 650);
@@ -22,7 +23,7 @@ void draw() {
 }
 
 void viewIntroduction() {
-   background(#000000);
+   background(#ffffff);
    
    controlp5 = new ControlP5(this);
    
@@ -31,18 +32,19 @@ void viewIntroduction() {
   
 
    Button test1 = controlp5.addButton("TEST").setSize(150, 100).setPosition(50, 75);
-   test1.setColorBackground(#9D43DE);
+   test1.setColorBackground(#DCDCDC);
    Button test2 = controlp5.addButton("TEST2").setSize(150, 100).setPosition(300, 75);   
-   test2.setColorBackground(#9D43DE);
+   test2.setColorBackground(#DCDCDC);
    Button test3 = controlp5.addButton("TEST3").setSize(150, 100).setPosition(50, 275);
-   test3.setColorBackground(#9D43DE);
+   test3.setColorBackground(#DCDCDC);
    Button test4 = controlp5.addButton("TEST4").setSize(150, 100).setPosition(300, 275);
-   test4.setColorBackground(#9D43DE);
+   test4.setColorBackground(#DCDCDC);
    Button test5 = controlp5.addButton("TEST5").setSize(150, 100).setPosition(50, 475);
-   test5.setColorBackground(#9D43DE);
+   test5.setColorBackground(#DCDCDC);
    Button test6 = controlp5.addButton("TEST6").setSize(150, 100).setPosition(300, 475);
-   test6.setColorBackground(#9D43DE);
-   
+   test6.setColorBackground(#DCDCDC);
+   Button darkTheme = controlp5.addButton("MUDAR TEMA").setSize(50, 25).setPosition(10, 10);
+   darkTheme.setColorBackground(#DCDCDC);
    
    listOfButtons.add(test1);
    listOfButtons.add(test2);
@@ -76,5 +78,22 @@ void buttonPressioned(List<Button> list) {
            }
        }
     });
+  }
+}
+
+void mousePressed() {
+  if (dark == false) {
+    if(mouseX > 10 && mouseX < 60 && mouseY > 10 && mouseY < 35) {
+      background(#222222);
+      controlp5.setColorBackground(#555555);
+      dark = true;
+    }
+  }
+  else if (dark == true) {
+    if(mouseX > 10 && mouseX < 60 && mouseY > 10 && mouseY < 35) {
+      background(#ffffff);
+      controlp5.setColorBackground(#DCDCDC);
+      dark = false;
+    }
   }
 }
