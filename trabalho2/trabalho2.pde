@@ -25,12 +25,10 @@ void draw() {
 void viewIntroduction() {
    background(#ffffff);
    
+   boolean isPressed = false;
    controlp5 = new ControlP5(this);
    
    
-   
-  
-
    Button test1 = controlp5.addButton("TEST").setSize(150, 100).setPosition(50, 75);
    test1.setColorBackground(#DCDCDC);
    Button test2 = controlp5.addButton("TEST2").setSize(150, 100).setPosition(300, 75);   
@@ -53,12 +51,15 @@ void viewIntroduction() {
    listOfButtons.add(test5);
    listOfButtons.add(test6);
    
-   buttonPressioned(listOfButtons); 
-}
+   buttonPressioned(listOfButtons);
+   
+ }
 
 
 void viewFirstGif() {
-   background(0);
+   background(255);
+   Button test1 = controlp5.addButton("TEST").setSize(300, 300).setPosition(50, 75);
+
 }
 
 
@@ -67,15 +68,19 @@ void viewSecondGif() {
 }
 
 void buttonPressioned(List<Button> list) {
+  
   for (Button button : list) {
     button.addCallback(new CallbackListener() {
        public void controlEvent(CallbackEvent event) {
            switch(event.getAction()) {
               case (ControlP5.PRESSED):    
-              controlp5.hide();
-              viewFirstGif();
+              
+             for (Button button : listOfButtons) {
+                button.hide(); 
+             }
+             viewFirstGif();
               break;
-           }
+          }
        }
     });
   }
