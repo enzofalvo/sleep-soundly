@@ -23,26 +23,26 @@ void draw() {
 }
 
 void viewIntroduction() {
-   background(#ffffff);
+   background(#EEFFFF);
    
    boolean isPressed = false;
    controlp5 = new ControlP5(this);
    
    
    Button test1 = controlp5.addButton("TEST").setSize(150, 100).setPosition(50, 75);
-   test1.setColorBackground(#DCDCDC);
+   test1.setColorBackground(#89ABE3);
    Button test2 = controlp5.addButton("TEST2").setSize(150, 100).setPosition(300, 75);   
-   test2.setColorBackground(#DCDCDC);
+   test2.setColorBackground(#89ABE3);
    Button test3 = controlp5.addButton("TEST3").setSize(150, 100).setPosition(50, 275);
-   test3.setColorBackground(#DCDCDC);
+   test3.setColorBackground(#89ABE3);
    Button test4 = controlp5.addButton("TEST4").setSize(150, 100).setPosition(300, 275);
-   test4.setColorBackground(#DCDCDC);
+   test4.setColorBackground(#89ABE3);
    Button test5 = controlp5.addButton("TEST5").setSize(150, 100).setPosition(50, 475);
-   test5.setColorBackground(#DCDCDC);
+   test5.setColorBackground(#89ABE3);
    Button test6 = controlp5.addButton("TEST6").setSize(150, 100).setPosition(300, 475);
-   test6.setColorBackground(#DCDCDC);
+   test6.setColorBackground(#89ABE3);
    Button darkTheme = controlp5.addButton("MUDAR TEMA").setSize(50, 25).setPosition(10, 10);
-   darkTheme.setColorBackground(#DCDCDC);
+   darkTheme.setColorBackground(#89ABE3);
    
    listOfButtons.add(test1);
    listOfButtons.add(test2);
@@ -96,8 +96,8 @@ void mousePressed() {
   }
   else if (dark == true) {
     if(mouseX > 10 && mouseX < 60 && mouseY > 10 && mouseY < 35) {
-      background(#ffffff);
-      controlp5.setColorBackground(#DCDCDC);
+      background(#EEFFFF);
+      controlp5.setColorBackground(#89ABE3);
       dark = false;
     }
   }
