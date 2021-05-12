@@ -107,7 +107,7 @@ void viewIntroduction() {
   }
   );  
 }
- }
+ 
 
 void viewFirstGif() {
    background(255);
