@@ -2,11 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 import controlP5.*;
 
-List<Button> listOfButtons = new ArrayList<Button>();
 
 String name;
 ControlP5 controlp5;
 public boolean dark;
+
+List<Button> listOfButtonsViewIntrod = new ArrayList<Button>();
+List<Button> listOfButtonsViewFirstGif = new ArrayList<Button>();
 
 void setup() {
   size(500, 650);
@@ -15,7 +17,7 @@ void setup() {
   if (name == null) {
      viewIntroduction();
   } 
-  
+
 }
 
 void draw() {
@@ -24,11 +26,10 @@ void draw() {
 
 void viewIntroduction() {
    background(#EEFFFF);
-   
    boolean isPressed = false;
+   
    controlp5 = new ControlP5(this);
-   
-   
+  
    Button test1 = controlp5.addButton("TEST").setSize(150, 100).setPosition(50, 75);
    test1.setColorBackground(#89ABE3);
    Button test2 = controlp5.addButton("TEST2").setSize(150, 100).setPosition(300, 75);   
@@ -44,46 +45,91 @@ void viewIntroduction() {
    Button darkTheme = controlp5.addButton("MUDAR TEMA").setSize(50, 25).setPosition(10, 10);
    darkTheme.setColorBackground(#89ABE3);
    
-   listOfButtons.add(test1);
-   listOfButtons.add(test2);
-   listOfButtons.add(test3);
-   listOfButtons.add(test4);
-   listOfButtons.add(test5);
-   listOfButtons.add(test6);
+   listOfButtonsViewIntrod.add(test1);
+   listOfButtonsViewIntrod.add(test2);
+   listOfButtonsViewIntrod.add(test3);
+   listOfButtonsViewIntrod.add(test4);
+   listOfButtonsViewIntrod.add(test5);
+   listOfButtonsViewIntrod.add(test6);
    
-   buttonPressioned(listOfButtons);
-   
+  test1.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewFirstGif();
+        hideButtons(listOfButtonsViewIntrod);
+      }
+    }
+  }
+  );
+  test2.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewFirstGif();
+        hideButtons(listOfButtonsViewIntrod);
+      }
+    }
+  }
+  );
+  test3.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewFirstGif();
+        hideButtons(listOfButtonsViewIntrod);
+      }
+    }
+  }
+  );
+  test4.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewFirstGif();
+        hideButtons(listOfButtonsViewIntrod);
+      }
+    }
+  }
+  );
+  test5.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewFirstGif();
+        hideButtons(listOfButtonsViewIntrod);
+      }
+    }
+  }
+  );
+  test6.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewFirstGif();
+        hideButtons(listOfButtonsViewIntrod);
+      }
+    }
+  }
+  );  
+}
  }
-
 
 void viewFirstGif() {
    background(255);
-   Button test1 = controlp5.addButton("TEST").setSize(300, 300).setPosition(50, 75);
-
+   
+   Button btnBack = controlp5.addButton("Voltar").setSize(50, 25).setPosition(440, 10);
+   btnBack.setColorBackground(#DCDCDC);  
+   listOfButtonsViewFirstGif.add(btnBack);
+   
+   btnBack.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewIntroduction();
+        hideButtons(listOfButtonsViewFirstGif);
+      }
+    }
+  }
+  );
 }
 
 
 void viewSecondGif() {
    background(0);
-}
-
-void buttonPressioned(List<Button> list) {
-  
-  for (Button button : list) {
-    button.addCallback(new CallbackListener() {
-       public void controlEvent(CallbackEvent event) {
-           switch(event.getAction()) {
-              case (ControlP5.PRESSED):    
-              
-             for (Button button : listOfButtons) {
-                button.hide(); 
-             }
-             viewFirstGif();
-              break;
-          }
-       }
-    });
-  }
 }
 
 void mousePressed() {
@@ -100,5 +146,11 @@ void mousePressed() {
       controlp5.setColorBackground(#89ABE3);
       dark = false;
     }
+  }
+}
+
+void hideButtons(List<Button> list) {
+  for (Button b : list) {
+     b.hide(); 
   }
 }
