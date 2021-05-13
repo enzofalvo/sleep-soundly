@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import controlP5.*;
 
-
 String name;
 ControlP5 controlp5;
 public boolean dark;
@@ -17,7 +16,6 @@ void setup() {
   if (name == null) {
      viewIntroduction();
   } 
-
 }
 
 void draw() {
@@ -64,7 +62,7 @@ void viewIntroduction() {
   test2.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
-        viewFirstGif();
+        viewSecondGif();
         hideButtons(listOfButtonsViewIntrod);
       }
     }
@@ -73,7 +71,7 @@ void viewIntroduction() {
   test3.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
-        viewFirstGif();
+        viewThirdGif();
         hideButtons(listOfButtonsViewIntrod);
       }
     }
@@ -82,7 +80,7 @@ void viewIntroduction() {
   test4.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
-        viewFirstGif();
+        viewFourthGif();
         hideButtons(listOfButtonsViewIntrod);
       }
     }
@@ -91,7 +89,7 @@ void viewIntroduction() {
   test5.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
-        viewFirstGif();
+        viewSixtyGif();
         hideButtons(listOfButtonsViewIntrod);
       }
     }
@@ -106,30 +104,6 @@ void viewIntroduction() {
     }
   }
   );  
-}
- 
-
-void viewFirstGif() {
-   background(255);
-   
-   Button btnBack = controlp5.addButton("Voltar").setSize(50, 25).setPosition(440, 10);
-   btnBack.setColorBackground(#DCDCDC);  
-   listOfButtonsViewFirstGif.add(btnBack);
-   
-   btnBack.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewIntroduction();
-        hideButtons(listOfButtonsViewFirstGif);
-      }
-    }
-  }
-  );
-}
-
-
-void viewSecondGif() {
-   background(0);
 }
 
 void mousePressed() {
@@ -153,4 +127,19 @@ void hideButtons(List<Button> list) {
   for (Button b : list) {
      b.hide(); 
   }
+}
+
+void addButtonBack() {
+   Button btnBack = controlp5.addButton("Voltar").setSize(50, 25).setPosition(440, 10);
+   btnBack.setColorBackground(#DCDCDC);   
+   listOfButtonsViewFirstGif.add(btnBack);
+   btnBack.onRelease(new CallbackListener() {  
+    public void controlEvent(CallbackEvent event) {
+      if (controlp5.PRESSED == 1) {
+        viewIntroduction();
+        hideButtons(listOfButtonsViewFirstGif);
+      }
+    }
+  }
+  );
 }
