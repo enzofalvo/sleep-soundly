@@ -131,12 +131,23 @@ void hideButtons(List<Button> list) {
 
 void addButtonBack() {
    Button btnBack = controlp5.addButton("Voltar").setSize(50, 25).setPosition(440, 10);
-   btnBack.setColorBackground(#DCDCDC);   
+   if (dark == true) {
+     btnBack.setColorBackground(#555555);
+   } else if (dark == false) {
+     btnBack.setColorBackground(#89ABE3);
+   }
    listOfButtonsViewFirstGif.add(btnBack);
    btnBack.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
         viewIntroduction();
+        if (dark == true) {
+          background(#222222);
+          controlp5.setColorBackground(#555555);
+        } else if (dark == false) {
+          background(#EEFFFF);
+          controlp5.setColorBackground(#89ABE3);
+        }
         hideButtons(listOfButtonsViewFirstGif);
       }
     }
