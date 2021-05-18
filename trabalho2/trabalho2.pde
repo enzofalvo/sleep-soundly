@@ -1,112 +1,51 @@
 import java.util.ArrayList;
 import java.util.List;
 import controlP5.*;
+import ddf.minim.*;
+import processing.video.*;
 
-String name;
 ControlP5 controlp5;
-public boolean dark;
-
-List<Button> listOfButtonsViewIntrod = new ArrayList<Button>();
-List<Button> listOfButtonsViewFirstGif = new ArrayList<Button>();
+Minim minim;
 
 void setup() {
   size(500, 650);
   background(50);
   
-  if (name == null) {
-     viewIntroduction();
-  } 
+  minim = new Minim(this);
+  musica_chuva = minim.loadFile("musica_chuva.mp3"); 
+  musica_rio = minim.loadFile("musica_rio.mp3"); 
+  musica_oceano = minim.loadFile("musica_oceano.mp3"); 
+  musica_passaros = minim.loadFile("musica_passaros.mp3");
+  musica_natureza = minim.loadFile("musica_natureza.mp3");
+  musica_chuva_passaros = minim.loadFile("musica_chuva_passaros.mp3");
+  
+  video_chuva = new Movie(this, "video_chuva.mp4");
+  video_rio = new Movie(this, "video_rio.mp4");
+  video_oceano = new Movie(this, "video_oceano.mp4");
+  video_natureza = new Movie(this, "video_natureza.mp4");
+  video_chuva_passaros = new Movie(this, "video_chuva_passaros.mp4");
+
+  viewIntroduction();
+
 }
 
 void draw() {
-
+  image(video_chuva, 0, 0);
 }
 
-void viewIntroduction() {
-   background(#EEFFFF);
-   boolean isPressed = false;
-   
-   controlp5 = new ControlP5(this);
-  
-   Button test1 = controlp5.addButton("TEST").setSize(150, 100).setPosition(50, 75);
-   test1.setColorBackground(#89ABE3);
-   Button test2 = controlp5.addButton("TEST2").setSize(150, 100).setPosition(300, 75);   
-   test2.setColorBackground(#89ABE3);
-   Button test3 = controlp5.addButton("TEST3").setSize(150, 100).setPosition(50, 275);
-   test3.setColorBackground(#89ABE3);
-   Button test4 = controlp5.addButton("TEST4").setSize(150, 100).setPosition(300, 275);
-   test4.setColorBackground(#89ABE3);
-   Button test5 = controlp5.addButton("TEST5").setSize(150, 100).setPosition(50, 475);
-   test5.setColorBackground(#89ABE3);
-   Button test6 = controlp5.addButton("TEST6").setSize(150, 100).setPosition(300, 475);
-   test6.setColorBackground(#89ABE3);
-   Button darkTheme = controlp5.addButton("MUDAR TEMA").setSize(50, 25).setPosition(10, 10);
-   darkTheme.setColorBackground(#89ABE3);
-   
-   listOfButtonsViewIntrod.add(test1);
-   listOfButtonsViewIntrod.add(test2);
-   listOfButtonsViewIntrod.add(test3);
-   listOfButtonsViewIntrod.add(test4);
-   listOfButtonsViewIntrod.add(test5);
-   listOfButtonsViewIntrod.add(test6);
-   
-  test1.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewFirstGif();
-        hideButtons(listOfButtonsViewIntrod);
-      }
-    }
-  }
-  );
-  test2.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewSecondGif();
-        hideButtons(listOfButtonsViewIntrod);
-      }
-    }
-  }
-  );
-  test3.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewThirdGif();
-        hideButtons(listOfButtonsViewIntrod);
-      }
-    }
-  }
-  );
-  test4.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewFourthGif();
-        hideButtons(listOfButtonsViewIntrod);
-      }
-    }
-  }
-  );
-  test5.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewSixtyGif();
-        hideButtons(listOfButtonsViewIntrod);
-      }
-    }
-  }
-  );
-  test6.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewFirstGif();
-        hideButtons(listOfButtonsViewIntrod);
-      }
-    }
-  }
-  );  
-}
 
 void mousePressed() {
+  //configuração das faixas de musicas
+  //linha 1
+  if((mouseX>50)&&(mouseX<200)&&(mouseY>75)&&(mouseY<189)) {musica=1; toca_musica();toca_musica();video=1; play_video();}
+  if((mouseX>300)&&(mouseX<450)&&(mouseY>75)&&(mouseY<189)) {musica=2; toca_musica();toca_musica();video=2; play_video();}
+  //linha2
+  if((mouseX>50)&&(mouseX<200)&&(mouseY>270)&&(mouseY<389)) {musica=3; toca_musica();toca_musica();video=3; play_video();}
+  if((mouseX>300)&&(mouseX<450)&&(mouseY>275)&&(mouseY<389)) {musica=4; toca_musica();toca_musica();video=4; play_video();}
+  //linha3
+  if((mouseX>50)&&(mouseX<200)&&(mouseY>475)&&(mouseY<575)) {musica=5; toca_musica();toca_musica();video=5; play_video();}
+  if((mouseX>300)&&(mouseX<450)&&(mouseY>475)&&(mouseY<589)) {musica=6; toca_musica();toca_musica();video=4; play_video();} 
+  
   if (dark == false) {
     if(mouseX > 10 && mouseX < 60 && mouseY > 10 && mouseY < 35) {
       background(#222222);
@@ -121,36 +60,4 @@ void mousePressed() {
       dark = false;
     }
   }
-}
-
-void hideButtons(List<Button> list) {
-  for (Button b : list) {
-     b.hide(); 
-  }
-}
-
-void addButtonBack() {
-   Button btnBack = controlp5.addButton("Voltar").setSize(50, 25).setPosition(440, 10);
-   if (dark == true) {
-     btnBack.setColorBackground(#555555);
-   } else if (dark == false) {
-     btnBack.setColorBackground(#89ABE3);
-   }
-   listOfButtonsViewFirstGif.add(btnBack);
-   btnBack.onRelease(new CallbackListener() {  
-    public void controlEvent(CallbackEvent event) {
-      if (controlp5.PRESSED == 1) {
-        viewIntroduction();
-        if (dark == true) {
-          background(#222222);
-          controlp5.setColorBackground(#555555);
-        } else if (dark == false) {
-          background(#EEFFFF);
-          controlp5.setColorBackground(#89ABE3);
-        }
-        hideButtons(listOfButtonsViewFirstGif);
-      }
-    }
-  }
-  );
 }
