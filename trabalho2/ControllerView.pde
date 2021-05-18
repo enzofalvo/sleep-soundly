@@ -3,7 +3,6 @@ List<Button> listOfButtonsViewFirstGif = new ArrayList<Button>();
 
 void viewIntroduction() {
    background(#EEFFFF);
-   boolean isPressed = false;
    
    controlp5 = new ControlP5(this);
   
@@ -33,8 +32,8 @@ void viewIntroduction() {
   test1.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
-        viewFirstGif();
-        hideButtons(listOfButtonsViewIntrod);
+        removeButtons(listOfButtonsViewIntrod);
+        viewFirstGif(); 
       }
     }
   }
@@ -42,8 +41,8 @@ void viewIntroduction() {
   test2.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
+        removeButtons(listOfButtonsViewIntrod);
         viewSecondGif();
-        hideButtons(listOfButtonsViewIntrod);
       }
     }
   }
@@ -51,8 +50,8 @@ void viewIntroduction() {
   test3.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
+        removeButtons(listOfButtonsViewIntrod);
         viewThirdGif();
-        hideButtons(listOfButtonsViewIntrod);
       }
     }
   }
@@ -60,8 +59,8 @@ void viewIntroduction() {
   test4.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
+        removeButtons(listOfButtonsViewIntrod);
         viewFourthGif();
-        hideButtons(listOfButtonsViewIntrod);
       }
     }
   }
@@ -69,8 +68,8 @@ void viewIntroduction() {
   test5.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
+        removeButtons(listOfButtonsViewIntrod);
         viewSixtyGif();
-        hideButtons(listOfButtonsViewIntrod);
       }
     }
   }
@@ -78,8 +77,8 @@ void viewIntroduction() {
   test6.onRelease(new CallbackListener() {  
     public void controlEvent(CallbackEvent event) {
       if (controlp5.PRESSED == 1) {
+        removeButtons(listOfButtonsViewIntrod);
         viewFirstGif();
-        hideButtons(listOfButtonsViewIntrod);
       }
     }
   }
@@ -88,7 +87,7 @@ void viewIntroduction() {
 
 void viewFirstGif() {
    background(255);
-   addButtonBack();   
+   addButtonBack();
 }
 
 void viewSecondGif() {
@@ -117,9 +116,11 @@ void viewSixtyGif() {
 }
 
 
-void hideButtons(List<Button> list) {
+void removeButtons(List<Button> list) {
+  
   for (Button b : list) {
-     b.hide(); 
+     b.hide();
+     b.lock();  
   }
 }
 
@@ -141,8 +142,8 @@ void addButtonBack() {
         } else if (dark == false) {
           background(#EEFFFF);
           controlp5.setColorBackground(#89ABE3);
+        
         }
-        hideButtons(listOfButtonsViewFirstGif);
         close();//chamando a função para parar a musica
       }
     }

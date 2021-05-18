@@ -31,6 +31,10 @@ void setup() {
 
 void draw() {
   image(video_chuva, 0, 0);
+  image(video_rio, 0, 0);
+  image(video_oceano, 0, 0);
+  image(video_natureza, 0, 0);
+  image(video_chuva_passaros, 0, 0);;
 }
 
 

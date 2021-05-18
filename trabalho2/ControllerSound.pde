@@ -39,25 +39,26 @@ void toca_musica(){
 void close(){ //função que fara as musicas pararem de tocar quando apertar o botão voltar
     if (musica==1) {
       musica_chuva.pause();
-      video_chuva.pause();
+      video_chuva.stop();
     }
     if (musica==2) {
     musica_rio.pause();
-    video_rio.pause();
+    video_rio.stop();
     }
     if (musica==3) {
     musica_oceano.pause();
-    video_oceano.pause();
+    video_oceano.stop();
     }
     if (musica==4) {
     musica_passaros.pause();
-    video_chuva_passaros.pause();
+    video_chuva_passaros.stop();
     }
     if (musica==5) {
     musica_natureza.pause();
-    video_natureza.pause();
+    video_natureza.stop();
     }
     if (musica==6) {
     musica_chuva_passaros.pause();
+    video_chuva_passaros.stop();
     }
 }
