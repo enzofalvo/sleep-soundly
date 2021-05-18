@@ -1,6 +1,6 @@
 
 # ![Screenshot](https://github.com/enzofalvo/project-criative-experience-2/blob/master/trabalho2/images/Captura%20de%20tela%202021-05-18%20180511.jpg)
-# ![Alt text](https://github.com/enzofalvo/project-criative-experience-2/blob/master/trabalho2/gif/trabalho2-2021-05-18-17-54-31.gif)
+### ![Alt text](https://github.com/enzofalvo/project-criative-experience-2/blob/master/trabalho2/gif/trabalho2-2021-05-18-17-54-31.gif)
 ## 📖 Sobre
 Esta aplicação foi desenvolvida em Java, utilizando Processing. Busca trazer uma sensação de relaxamento e satisfazer o usuário com sons da natureza.
 Algumas das funções que o programa executa:
